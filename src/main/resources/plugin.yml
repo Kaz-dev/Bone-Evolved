@@ -1,0 +1,19 @@
+name: BoneEvolved
+version: '${project.version}'
+main: me.boneguy.be.Main
+api-version: 1.18
+authors: [ Kaleb ]
+description: More Options for your favorite bone
+commands:
+  giveminebone:
+    description: Gives bone for mining to the player.
+    usage: /<command>
+  givebigbone:
+    description: Gives bone for 3x3 mining to the player.
+    usage: /<command>
+  givechopbone:
+    description: Gives bone for chopping trees to the player.
+    usage: /<command>
+  giveswissbone:
+    description: Gives bone for chopping trees to the player.
+    usage: /<command>
