@@ -17,12 +17,16 @@ public class ItemManager {
     public static ItemStack minebone;
     public static ItemStack bigbone;
     public static ItemStack chopbone;
+    public static ItemStack digbone;
+    public static ItemStack plantbone;
     public static ItemStack utilbone;
 
     public static void init() {
         createMineBone();
         createBigMineBone();
         createChopBone();
+        createDigBone();
+        createPlantBone();
         createSwissBone();
     }
 
@@ -87,6 +91,50 @@ public class ItemManager {
         // recipe
         ShapedRecipe sr = new ShapedRecipe(NamespacedKey.minecraft("chopbone_recipe"), item);
         sr.shape(" B ", "   ", "   ");
+        sr.setIngredient('B', Material.BONE);
+        Bukkit.getServer().addRecipe(sr);
+    }
+
+    private static void createDigBone() {
+        ItemStack item = new ItemStack(Material.GOLDEN_SHOVEL, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName("Bone for ground");
+        List<String> lore = new ArrayList<>();
+        lore.add("Try hit soft ground");
+        meta.setLore(lore);
+        meta.setCustomModelData(1003);
+        meta.addEnchant(Enchantment.DIG_SPEED, 5, true);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        meta.setUnbreakable(true);
+        item.setItemMeta(meta);
+
+        digbone = item;
+
+        // recipe
+        ShapedRecipe sr = new ShapedRecipe(NamespacedKey.minecraft("digbone_recipe"), item);
+        sr.shape("B  ", "   ", "   ");
+        sr.setIngredient('B', Material.BONE);
+        Bukkit.getServer().addRecipe(sr);
+    }
+
+    private static void createPlantBone() {
+        ItemStack item = new ItemStack(Material.GOLDEN_HOE, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName("Bone for plants");
+        List<String> lore = new ArrayList<>();
+        lore.add("Try hit dirt");
+        meta.setLore(lore);
+        meta.setCustomModelData(1003);
+        meta.addEnchant(Enchantment.LUCK, 1, false);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        meta.setUnbreakable(true);
+        item.setItemMeta(meta);
+
+        plantbone = item;
+
+        // recipe
+        ShapedRecipe sr = new ShapedRecipe(NamespacedKey.minecraft("plantbone_recipe"), item);
+        sr.shape("  B", "   ", "   ");
         sr.setIngredient('B', Material.BONE);
         Bukkit.getServer().addRecipe(sr);
     }

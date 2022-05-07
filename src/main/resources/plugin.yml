@@ -14,6 +14,12 @@ commands:
   givechopbone:
     description: Gives bone for chopping trees to the player.
     usage: /<command>
+  givedigbone:
+    description: Gives bone for chopping trees to the player.
+    usage: /<command>
+  giveplantbone:
+    description: Gives bone for chopping trees to the player.
+    usage: /<command>
   giveswissbone:
     description: Gives bone for chopping trees to the player.
     usage: /<command>

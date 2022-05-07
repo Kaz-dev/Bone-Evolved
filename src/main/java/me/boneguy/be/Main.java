@@ -19,6 +19,8 @@ public class Main extends JavaPlugin {
         getCommand("giveminebone").setExecutor(new Commands());
         getCommand("givebigbone").setExecutor(new Commands());
         getCommand("givechopbone").setExecutor(new Commands());
+        getCommand("givedigbone").setExecutor(new Commands());
+        getCommand("giveplantbone").setExecutor(new Commands());
         getCommand("giveswissbone").setExecutor(new Commands());
     }
 
