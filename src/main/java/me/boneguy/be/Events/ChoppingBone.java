@@ -10,122 +10,52 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ChoppingBone implements Listener {
 
+    List<Block> blocks = new ArrayList<>();
+    BlockFace blockface =  null;
+
+    @EventHandler
+    public void onClick(PlayerInteractEvent event) {
+        if (event.getAction().equals(Action.LEFT_CLICK_BLOCK)) {
+            blockface = event.getBlockFace();
+        }
+    }
+
+    @EventHandler
     public void onPlayerBreakBlock(BlockBreakEvent event) {
-        Block blockBroken = event.getBlock();
+        Block block = event.getBlock();
 
-        if (event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore().contains("Try hit trees")) {
-            if (blockBroken.getType() == Material.ACACIA_LOG) {
-                event.setCancelled(true);
-                blockBroken.setType(Material.AIR);
-                ItemStack drop = new ItemStack(Material.ACACIA_LOG, 1);
-                blockBroken.getWorld().dropItemNaturally(blockBroken.getLocation(), drop);
-            }
+        // Whole tree chopdown
+        if(event.getPlayer().getInventory().getItemInMainHand().hasItemMeta() != false && event.getPlayer().getInventory().getItemInMainHand().getItemMeta().hasLore() != false) {
+            if(event.getPlayer().getInventory().getItemInMainHand().getItemMeta().getLore().contains("Try hit tree")) {
+                if (blockface.equals(BlockFace.NORTH) || blockface.equals(BlockFace.SOUTH) || blockface.equals(BlockFace.EAST) || blockface.equals(BlockFace.WEST)) {
+                    Block block1 = block.getRelative(BlockFace.UP);
+                    while (!block1.getType().name().contains("LEAVES")) {
+                        Block next = block1.getRelative(BlockFace.UP);
+                        if (next.getType().name().contains("LEAVES")) {
+                            break;
+                        } else {
+                            blocks.add(next);
+                        }
+                    }
+                    blocks.add(block1);
 
-            if (blockBroken.getType() == Material.STRIPPED_ACACIA_LOG) {
-                event.setCancelled(true);
-                blockBroken.setType(Material.AIR);
-                ItemStack drop = new ItemStack(Material.STRIPPED_ACACIA_LOG, 1);
-                blockBroken.getWorld().dropItemNaturally(blockBroken.getLocation(), drop);
-            }
-            
-            if (blockBroken.getType() == Material.BIRCH_LOG) {
-                event.setCancelled(true);
-                blockBroken.setType(Material.AIR);
-                ItemStack drop = new ItemStack(Material.BIRCH_LOG, 1);
-                blockBroken.getWorld().dropItemNaturally(blockBroken.getLocation(), drop);
-            }
-
-            if (blockBroken.getType() == Material.STRIPPED_BIRCH_LOG) {
-                event.setCancelled(true);
-                blockBroken.setType(Material.AIR);
-                ItemStack drop = new ItemStack(Material.STRIPPED_BIRCH_LOG, 4);
-                blockBroken.getWorld().dropItemNaturally(blockBroken.getLocation(), drop);
-            }
-
-            if (blockBroken.getType() == Material.OAK_LOG) {
-                event.setCancelled(true);
-                blockBroken.setType(Material.AIR);
-                ItemStack drop = new ItemStack(Material.OAK_LOG, 1);
-                blockBroken.getWorld().dropItemNaturally(blockBroken.getLocation(), drop);
-            }
-
-            if (blockBroken.getType() == Material.STRIPPED_OAK_LOG) {
-                event.setCancelled(true);
-                blockBroken.setType(Material.AIR);
-                ItemStack drop = new ItemStack(Material.STRIPPED_OAK_LOG, 1);
-                blockBroken.getWorld().dropItemNaturally(blockBroken.getLocation(), drop);
-            }
-
-            if (blockBroken.getType() == Material.DARK_OAK_LOG) {
-                event.setCancelled(true);
-                blockBroken.setType(Material.AIR);
-                ItemStack drop = new ItemStack(Material.DARK_OAK_LOG, 1);
-                blockBroken.getWorld().dropItemNaturally(blockBroken.getLocation(), drop);
-            }
-            
-            if (blockBroken.getType() == Material.STRIPPED_DARK_OAK_LOG) {
-                event.setCancelled(true);
-                blockBroken.setType(Material.AIR);
-                ItemStack drop = new ItemStack(Material.STRIPPED_DARK_OAK_LOG, 1);
-                blockBroken.getWorld().dropItemNaturally(blockBroken.getLocation(), drop);
-            }
-
-            if (blockBroken.getType() == Material.JUNGLE_LOG) {
-                event.setCancelled(true);
-                blockBroken.setType(Material.AIR);
-                ItemStack drop = new ItemStack(Material.JUNGLE_LOG, 1);
-                blockBroken.getWorld().dropItemNaturally(blockBroken.getLocation(), drop);
-            }
-
-            if (blockBroken.getType() == Material.STRIPPED_JUNGLE_LOG) {
-                event.setCancelled(true);
-                blockBroken.setType(Material.AIR);
-                ItemStack drop = new ItemStack(Material.STRIPPED_JUNGLE_LOG, 1);
-                blockBroken.getWorld().dropItemNaturally(blockBroken.getLocation(), drop);
-            }
-
-            if (blockBroken.getType() == Material.SPRUCE_LOG) {
-                event.setCancelled(true);
-                blockBroken.setType(Material.AIR);
-                ItemStack drop = new ItemStack(Material.SPRUCE_LOG, 1);
-                blockBroken.getWorld().dropItemNaturally(blockBroken.getLocation(), drop);
-            }
-
-            if (blockBroken.getType() == Material.STRIPPED_SPRUCE_LOG) {
-                event.setCancelled(true);
-                blockBroken.setType(Material.AIR);
-                ItemStack drop = new ItemStack(Material.STRIPPED_SPRUCE_LOG, 1);
-                blockBroken.getWorld().dropItemNaturally(blockBroken.getLocation(), drop);
-            }
-
-            if (blockBroken.getType() == Material.CRIMSON_STEM) {
-                event.setCancelled(true);
-                blockBroken.setType(Material.AIR);
-                ItemStack drop = new ItemStack(Material.CRIMSON_STEM, 1);
-                blockBroken.getWorld().dropItemNaturally(blockBroken.getLocation(), drop);
-            }
-
-            if (blockBroken.getType() == Material.STRIPPED_CRIMSON_STEM) {
-                event.setCancelled(true);
-                blockBroken.setType(Material.AIR);
-                ItemStack drop = new ItemStack(Material.STRIPPED_CRIMSON_STEM, 1);
-                blockBroken.getWorld().dropItemNaturally(blockBroken.getLocation(), drop);
-            }
-
-            if (blockBroken.getType() == Material.WARPED_STEM) {
-                event.setCancelled(true);
-                blockBroken.setType(Material.AIR);
-                ItemStack drop = new ItemStack(Material.WARPED_STEM, 1);
-                blockBroken.getWorld().dropItemNaturally(blockBroken.getLocation(), drop);
-            }
-
-            if (blockBroken.getType() == Material.STRIPPED_WARPED_STEM) {
-                event.setCancelled(true);
-                blockBroken.setType(Material.AIR);
-                ItemStack drop = new ItemStack(Material.STRIPPED_WARPED_STEM, 1);
-                blockBroken.getWorld().dropItemNaturally(blockBroken.getLocation(), drop);
+                    // Material drops
+                    for (Block b : blocks) {
+                        if (b.getType().name().contains("LOG") || b.getType().name().contains("STRIPPED")) {
+                            b.setType(Material.AIR);
+                            block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(b.getType()));
+                        } else if (b.getType().equals(Material.DARK_OAK_LOG)) {
+                            b.setType(Material.AIR);
+                            block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.DARK_OAK_LOG));
+                        }
+                    }
+                    blocks.clear();
+                }
             }
         }
     }
