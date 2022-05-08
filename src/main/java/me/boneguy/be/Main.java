@@ -1,6 +1,5 @@
 package me.boneguy.be;
 
-import me.boneguy.be.Events.ChoppingBone;
 import me.boneguy.be.Events.JoinEvent;
 import me.boneguy.be.Events.MiningBone;
 import  me.boneguy.be.commands.Commands;
@@ -15,7 +14,8 @@ public class Main extends JavaPlugin {
         ItemManager.init();
         getServer().getPluginManager().registerEvents(new JoinEvent(), this);
         getServer().getPluginManager().registerEvents(new MiningBone(), this);
-        getServer().getPluginManager().registerEvents(new ChoppingBone(), this);
+
+        // Plugin commands
         getCommand("giveminebone").setExecutor(new Commands());
         getCommand("givebigbone").setExecutor(new Commands());
         getCommand("givechopbone").setExecutor(new Commands());

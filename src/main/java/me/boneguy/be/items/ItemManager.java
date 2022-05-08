@@ -103,16 +103,17 @@ public class ItemManager {
         lore.add("Try hit soft ground");
         meta.setLore(lore);
         meta.setCustomModelData(1003);
-        meta.addEnchant(Enchantment.DIG_SPEED, 5, true);
+        meta.addEnchant(Enchantment.DIG_SPEED, 3, true);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.setUnbreakable(true);
+        meta.addItemFlags();
         item.setItemMeta(meta);
 
         digbone = item;
 
         // recipe
         ShapedRecipe sr = new ShapedRecipe(NamespacedKey.minecraft("digbone_recipe"), item);
-        sr.shape("B  ", "   ", "   ");
+        sr.shape("   ", "   ", "B  ");
         sr.setIngredient('B', Material.BONE);
         Bukkit.getServer().addRecipe(sr);
     }
@@ -124,7 +125,7 @@ public class ItemManager {
         List<String> lore = new ArrayList<>();
         lore.add("Try hit dirt");
         meta.setLore(lore);
-        meta.setCustomModelData(1003);
+        meta.setCustomModelData(1004);
         meta.addEnchant(Enchantment.LUCK, 1, false);
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         meta.setUnbreakable(true);
