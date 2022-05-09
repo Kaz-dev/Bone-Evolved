@@ -2,6 +2,7 @@ package me.boneguy.be;
 
 import me.boneguy.be.Events.JoinEvent;
 import me.boneguy.be.Events.MiningBone;
+import me.boneguy.be.Events.ThrowingBone;
 import  me.boneguy.be.commands.Commands;
 import me.boneguy.be.items.ItemManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -12,8 +13,9 @@ public class Main extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         ItemManager.init();
-        getServer().getPluginManager().registerEvents(new JoinEvent(), this);
+        // getServer().getPluginManager().registerEvents(new JoinEvent(), this);
         getServer().getPluginManager().registerEvents(new MiningBone(), this);
+        getServer().getPluginManager().registerEvents(new ThrowingBone(this), this);
 
         // Plugin commands
         getCommand("giveminebone").setExecutor(new Commands());
@@ -21,6 +23,7 @@ public class Main extends JavaPlugin {
         getCommand("givechopbone").setExecutor(new Commands());
         getCommand("givedigbone").setExecutor(new Commands());
         getCommand("giveplantbone").setExecutor(new Commands());
+        getCommand("givethrowbone").setExecutor(new Commands());
         getCommand("giveswissbone").setExecutor(new Commands());
     }
 

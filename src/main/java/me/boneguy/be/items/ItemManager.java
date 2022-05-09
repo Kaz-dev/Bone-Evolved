@@ -3,6 +3,8 @@ package me.boneguy.be.items;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -11,6 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class ItemManager {
 
@@ -20,6 +23,7 @@ public class ItemManager {
     public static ItemStack digbone;
     public static ItemStack plantbone;
     public static ItemStack utilbone;
+    public static ItemStack throwbone;
 
     public static void init() {
         createMineBone();
@@ -28,6 +32,7 @@ public class ItemManager {
         createDigBone();
         createPlantBone();
         createSwissBone();
+        createThrowingBone();
     }
 
     private static void createMineBone() {
@@ -135,15 +140,38 @@ public class ItemManager {
 
         // recipe
         ShapedRecipe sr = new ShapedRecipe(NamespacedKey.minecraft("plantbone_recipe"), item);
-        sr.shape("  B", "   ", "   ");
+        sr.shape("B  ", "   ", "   ");
         sr.setIngredient('B', Material.BONE);
+        Bukkit.getServer().addRecipe(sr);
+    }
+
+    private static void createThrowingBone() {
+        ItemStack item = new ItemStack(Material.BONE, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName("Bonerang");
+        List<String> lore = new ArrayList<>();
+        lore.add("Try throw bone");
+        meta.setLore(lore);
+        meta.addEnchant(Enchantment.LUCK, 1, false);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        AttributeModifier damage = new AttributeModifier(UUID.randomUUID(), "generic.attackDamage", 5.0, AttributeModifier.Operation.ADD_NUMBER, EquipmentSlot.HAND);
+        meta.addAttributeModifier(Attribute.GENERIC_ATTACK_DAMAGE, damage);
+        item.setItemMeta(meta);
+
+        throwbone = item;
+
+        // recipe
+        ShapedRecipe sr = new ShapedRecipe(NamespacedKey.minecraft("throwbone_recipe"), item);
+        sr.shape(" B ", "BLB", " B ");
+        sr.setIngredient('B', Material.BONE);
+        sr.setIngredient('L', Material.LEATHER);
         Bukkit.getServer().addRecipe(sr);
     }
 
     private static void createSwissBone() {
         ItemStack item = new ItemStack(Material.BONE, 1);
         ItemMeta meta = item.getItemMeta();
-        meta.setDisplayName("Bone for ALL");
+        meta.setDisplayName("Bone for all");
         List<String> lore = new ArrayList<>();
         lore.add("Try hit E V E R Y T H I N G");
         meta.setLore(lore);

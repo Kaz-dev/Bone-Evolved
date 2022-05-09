@@ -30,6 +30,9 @@ public class Commands implements CommandExecutor {
         if (cmd.getName().equalsIgnoreCase("giveplantbone")) {
             player.getInventory().addItem(ItemManager.plantbone);
         }
+        if (cmd.getName().equalsIgnoreCase("givethrowtbone")) {
+            player.getInventory().addItem(ItemManager.throwbone);
+        }
         if (cmd.getName().equalsIgnoreCase("giveswissbone")) {
             player.getInventory().addItem(ItemManager.utilbone);
         }

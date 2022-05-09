@@ -141,6 +141,30 @@ public class MiningBone implements Listener {
                                 block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.RAW_GOLD));
                             }
                         }
+                        else if (b.getType().equals(Material.DIAMOND_ORE) || b.getType().equals(Material.DEEPSLATE_DIAMOND_ORE)) {
+                            b.setType(Material.AIR);
+                            if (event.getPlayer().getInventory().getItemInMainHand().getItemMeta().hasEnchant(Enchantment.SILK_TOUCH)) {
+                                block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.DIAMOND_ORE));
+                            } else {
+                                block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.DIAMOND));
+                            }
+                        }
+                        else if (b.getType().equals(Material.LAPIS_ORE) || b.getType().equals(Material.DEEPSLATE_LAPIS_ORE)) {
+                            b.setType(Material.AIR);
+                            if (event.getPlayer().getInventory().getItemInMainHand().getItemMeta().hasEnchant(Enchantment.SILK_TOUCH)) {
+                                block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.LAPIS_ORE));
+                            } else {
+                                block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.LAPIS_LAZULI));
+                            }
+                        }
+                        else if (b.getType().equals(Material.REDSTONE_ORE) || b.getType().equals(Material.DEEPSLATE_REDSTONE_ORE)) {
+                            b.setType(Material.AIR);
+                            if (event.getPlayer().getInventory().getItemInMainHand().getItemMeta().hasEnchant(Enchantment.SILK_TOUCH)) {
+                                block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.REDSTONE_ORE));
+                            } else {
+                                block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.REDSTONE));
+                            }
+                        }
                     }
                     blocks.clear();
                 }
@@ -250,6 +274,30 @@ public class MiningBone implements Listener {
                                 block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.GOLD_ORE));
                             } else {
                                 block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.RAW_GOLD));
+                            }
+                        }
+                        else if (b.getType().equals(Material.DIAMOND_ORE) || b.getType().equals(Material.DEEPSLATE_DIAMOND_ORE)) {
+                            b.setType(Material.AIR);
+                            if (event.getPlayer().getInventory().getItemInMainHand().getItemMeta().hasEnchant(Enchantment.SILK_TOUCH)) {
+                                block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.DIAMOND_ORE));
+                            } else {
+                                block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.DIAMOND));
+                            }
+                        }
+                        else if (b.getType().equals(Material.LAPIS_ORE) || b.getType().equals(Material.DEEPSLATE_LAPIS_ORE)) {
+                            b.setType(Material.AIR);
+                            if (event.getPlayer().getInventory().getItemInMainHand().getItemMeta().hasEnchant(Enchantment.SILK_TOUCH)) {
+                                block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.LAPIS_ORE));
+                            } else {
+                                block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.LAPIS_LAZULI));
+                            }
+                        }
+                        else if (b.getType().equals(Material.REDSTONE_ORE) || b.getType().equals(Material.DEEPSLATE_REDSTONE_ORE)) {
+                            b.setType(Material.AIR);
+                            if (event.getPlayer().getInventory().getItemInMainHand().getItemMeta().hasEnchant(Enchantment.SILK_TOUCH)) {
+                                block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.REDSTONE_ORE));
+                            } else {
+                                block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.REDSTONE));
                             }
                         }
                     }
@@ -362,6 +410,30 @@ public class MiningBone implements Listener {
                                 block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.GOLD_ORE));
                             } else {
                                 block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.RAW_GOLD));
+                            }
+                        }
+                        else if (b.getType().equals(Material.DIAMOND_ORE) || b.getType().equals(Material.DEEPSLATE_DIAMOND_ORE)) {
+                            b.setType(Material.AIR);
+                            if (event.getPlayer().getInventory().getItemInMainHand().getItemMeta().hasEnchant(Enchantment.SILK_TOUCH)) {
+                                block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.DIAMOND_ORE));
+                            } else {
+                                block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.DIAMOND));
+                            }
+                        }
+                        else if (b.getType().equals(Material.LAPIS_ORE) || b.getType().equals(Material.DEEPSLATE_LAPIS_ORE)) {
+                            b.setType(Material.AIR);
+                            if (event.getPlayer().getInventory().getItemInMainHand().getItemMeta().hasEnchant(Enchantment.SILK_TOUCH)) {
+                                block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.LAPIS_ORE));
+                            } else {
+                                block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.LAPIS_LAZULI));
+                            }
+                        }
+                        else if (b.getType().equals(Material.REDSTONE_ORE) || b.getType().equals(Material.DEEPSLATE_REDSTONE_ORE)) {
+                            b.setType(Material.AIR);
+                            if (event.getPlayer().getInventory().getItemInMainHand().getItemMeta().hasEnchant(Enchantment.SILK_TOUCH)) {
+                                block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.REDSTONE_ORE));
+                            } else {
+                                block.getWorld().dropItemNaturally(b.getLocation(), new ItemStack(Material.REDSTONE));
                             }
                         }
                     }

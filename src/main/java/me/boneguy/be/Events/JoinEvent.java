@@ -9,7 +9,7 @@ public class JoinEvent implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
         event.getPlayer().setResourcePack(
-                "https://drive.google.com/uc?export=download&id=1VvURfO0ueBi-u5l38ObfTF1oOQHnXSNC");
+                "https://drive.google.com/uc?export=download&id=1U3WW47M8WzfSPc66iRY_WemAUzv8cmGX");
     }
 
 }
